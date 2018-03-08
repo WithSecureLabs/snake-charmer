@@ -1,1 +1,1 @@
-{"data": {"memories": [{"file_type": "memory", "magic": "ASCII text", "mime": "text/plain", "name": "bye.txt", "sha256_digest": "9c0b28ffd15000c889feea89ca47c7f4d6734461bb0e067260b1ecca907de8f0", "size": 11, "timestamp": null}]}, "status": "success"}
+{"data": {"memories": [{"children": {}, "file_type": "memory", "magic": "ASCII text", "mime": "text/plain", "name": "bye.txt", "parents": {}, "sha256_digest": "9c0b28ffd15000c889feea89ca47c7f4d6734461bb0e067260b1ecca907de8f0", "size": 11, "submission_type": "upload:memory", "timestamp": null}]}, "status": "success"}
