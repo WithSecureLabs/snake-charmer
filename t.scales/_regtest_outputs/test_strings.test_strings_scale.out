@@ -1,0 +1,1 @@
+{"author": "Countercept", "components": ["commands"], "description": "a module to extract strings from files", "name": "strings", "supports": ["file"], "version": "1.0"}

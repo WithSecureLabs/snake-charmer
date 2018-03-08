@@ -1,0 +1,1 @@
+{"author": "Countercept", "components": ["commands"], "description": "a module to calculate hashes on files", "name": "hashes", "supports": ["file", "memory"], "version": "1.0"}

@@ -1,0 +1,10 @@
+{
+ "data": {
+  "command": "all",
+  "format": "json",
+  "scale": "hashes",
+  "sha256_digest": "abcd"
+ },
+ "message": "command - no output for given data",
+ "status": "error"
+}

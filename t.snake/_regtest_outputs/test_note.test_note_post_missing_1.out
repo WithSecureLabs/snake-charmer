@@ -1,0 +1,8 @@
+{
+ "data": {
+  "body": "abcd",
+  "sha256_digest": "abcd"
+ },
+ "message": "note - no sample for given data",
+ "status": "error"
+}

@@ -1,0 +1,5 @@
+{
+ "data": "abcd",
+ "message": "download - no sample for given sha256 digest",
+ "status": "error"
+}

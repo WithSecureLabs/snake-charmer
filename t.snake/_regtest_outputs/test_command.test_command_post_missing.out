@@ -1,0 +1,14 @@
+{
+ "message": {
+  "command": [
+   "Missing data for required field."
+  ],
+  "scale": [
+   "Missing data for required field."
+  ],
+  "sha256_digest": [
+   "Missing data for required field."
+  ]
+ },
+ "status": "fail"
+}

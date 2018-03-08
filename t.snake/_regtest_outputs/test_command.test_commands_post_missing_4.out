@@ -1,0 +1,15 @@
+{
+ "data": [
+  {
+   "args": {},
+   "command": "all",
+   "format": "json",
+   "scale": "hashes",
+   "sha256_digests": [
+    "abcd"
+   ]
+  }
+ ],
+ "message": "commands - no sample(s) for given data",
+ "status": "error"
+}

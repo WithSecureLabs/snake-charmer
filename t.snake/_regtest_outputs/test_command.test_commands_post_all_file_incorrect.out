@@ -1,0 +1,10 @@
+{
+ "data": [
+  [
+   "all:files",
+   "hashes"
+  ]
+ ],
+ "message": "commands - command unsupported for given data",
+ "status": "error"
+}

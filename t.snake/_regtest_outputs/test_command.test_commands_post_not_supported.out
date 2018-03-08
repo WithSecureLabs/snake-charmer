@@ -1,0 +1,15 @@
+{
+ "data": [
+  {
+   "args": {},
+   "command": "all_strings",
+   "format": "json",
+   "scale": "strings",
+   "sha256_digests": [
+    "9c0b28ffd15000c889feea89ca47c7f4d6734461bb0e067260b1ecca907de8f0"
+   ]
+  }
+ ],
+ "message": "commands - command unsupported for given data",
+ "status": "error"
+}
