@@ -16,5 +16,5 @@ def test_url_upload(regtest, db, url, file):
     }
     r = requests.post(url + '/scale/url/upload', json=data)
     cmd = r.json()
-    cmd['data']['file']['timestamp'] = None
+    cmd['data']['sample']['timestamp'] = None
     regtest.write(str(json.dumps(cmd, sort_keys=True)))

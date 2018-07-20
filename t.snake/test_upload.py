@@ -17,7 +17,7 @@ def test_upload_file_post(regtest, db, url):
     data = {'name': 'file'}
     r = requests.post(url + '/upload/file', files=files, data=data)
     f = r.json()
-    f['data']['file']['timestamp'] = None
+    f['data']['sample']['timestamp'] = None
     regtest.write(str(json.dumps(f, sort_keys=True)))
 
 
@@ -26,7 +26,7 @@ def test_upload_file_post_zipped(regtest, db, url):
     data = {'name': 'file', 'extract': 'true'}
     r = requests.post(url + '/upload/file', files=files, data=data)
     f = r.json()
-    f['data']['file']['timestamp'] = None
+    f['data']['sample']['timestamp'] = None
     regtest.write(str(json.dumps(f, sort_keys=True)))
 
 
@@ -35,7 +35,7 @@ def test_upload_file_post_zipped_password(regtest, db, url):
     data = {'name': 'file', 'extract': 'true', 'password': 'password'}
     r = requests.post(url + '/upload/file', files=files, data=data)
     f = r.json()
-    f['data']['file']['timestamp'] = None
+    f['data']['sample']['timestamp'] = None
     regtest.write(str(json.dumps(f, sort_keys=True)))
 
 
@@ -51,7 +51,7 @@ def test_upload_file_post_exist(regtest, db, url):
     data = {'name': 'file'}
     r = requests.post(url + '/upload/file', files=files, data=data)
     f = r.json()
-    f['data']['file']['timestamp'] = None
+    f['data']['sample']['timestamp'] = None
     regtest.write(str(json.dumps(f, sort_keys=True)))
 
 
@@ -115,7 +115,7 @@ def test_upload_memory_post(regtest, db, url):
     data = {'name': 'mem'}
     r = requests.post(url + '/upload/memory', files=files, data=data)
     f = r.json()
-    f['data']['memory']['timestamp'] = None
+    f['data']['sample']['timestamp'] = None
     regtest.write(str(json.dumps(f, sort_keys=True)))
 
 
@@ -124,5 +124,5 @@ def test_upload_memory_post_exist(regtest, db, url):
     data = {'name': 'mem'}
     r = requests.post(url + '/upload/memory', files=files, data=data)
     f = r.json()
-    f['data']['memory']['timestamp'] = None
+    f['data']['sample']['timestamp'] = None
     regtest.write(str(json.dumps(f, sort_keys=True)))
