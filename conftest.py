@@ -28,6 +28,14 @@ def file():
 
 
 @pytest.fixture(scope="module")
+def interesting():
+    files = {'file': open('files/interesting_file.txt', 'rb')}
+    data = {'name': 'interesting_file.txt'}
+    r = requests.post(URL + '/upload/file', files=files, data=data)
+    return r.json()['data']['sample']
+
+
+@pytest.fixture(scope="module")
 def memory():
     files = {'file': open('files/bye.txt', 'rb')}
     data = {'name': 'bye.txt'}
