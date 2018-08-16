@@ -75,20 +75,6 @@ def test_command_post_not_supported(regtest, db, url, memory):
     regtest.write(r.text)
 
 
-def test_command_post_args_none(regtest, db, url, interesting):
-    data = {
-        "sha256_digest": interesting['sha256_digest'],
-        "scale": "strings",
-        "command": "interesting",
-    }
-    r = requests.post(url + '/command', json=data)
-    cmd = r.json()
-    cmd['data']['command']['timestamp'] = None
-    cmd['data']['command']['start_time'] = None
-    cmd['data']['command']['end_time'] = None
-    regtest.write(str(json.dumps(cmd, sort_keys=True)))
-
-
 def test_command_post_args_empty(regtest, db, url, interesting):
     data = {
         "sha256_digest": interesting['sha256_digest'],
@@ -198,6 +184,20 @@ def test_command_get_incorrect_format(regtest, db, url, file):
            "&format=" + "abcd"
     r = requests.get(url + '/command' + data)
     regtest.write(r.text)
+
+
+def test_command_get_args_present(regtest, db, url, interesting):
+    data = "?sha256_digest=" + interesting['sha256_digest'] + \
+           "&scale=" + "strings" + \
+           "&command=" + "interesting" + \
+           "&format=" + "json" + \
+           "&args[min_length]=10"
+    r = requests.get(url + '/command' + data)
+    cmd = r.json()
+    cmd['data']['command']['timestamp'] = None
+    cmd['data']['command']['start_time'] = None
+    cmd['data']['command']['end_time'] = None
+    regtest.write(str(json.dumps(cmd, sort_keys=True)))
 
 
 def test_commands_post_missing(regtest, db, url):
