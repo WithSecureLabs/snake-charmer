@@ -74,6 +74,7 @@ def test_command_post_not_supported(regtest, db, url, memory):
     r = requests.post(url + '/command', json=data)
     regtest.write(r.text)
 
+
 def test_command_post_args_none(regtest, db, url, interesting):
     data = {
         "sha256_digest": interesting['sha256_digest'],
@@ -86,6 +87,7 @@ def test_command_post_args_none(regtest, db, url, interesting):
     cmd['data']['command']['start_time'] = None
     cmd['data']['command']['end_time'] = None
     regtest.write(str(json.dumps(cmd, sort_keys=True)))
+
 
 def test_command_post_args_empty(regtest, db, url, interesting):
     data = {
@@ -100,6 +102,7 @@ def test_command_post_args_empty(regtest, db, url, interesting):
     cmd['data']['command']['start_time'] = None
     cmd['data']['command']['end_time'] = None
     regtest.write(str(json.dumps(cmd, sort_keys=True)))
+
 
 def test_command_post_args_present(regtest, db, url, interesting):
     data = {
@@ -116,6 +119,7 @@ def test_command_post_args_present(regtest, db, url, interesting):
     cmd['data']['command']['start_time'] = None
     cmd['data']['command']['end_time'] = None
     regtest.write(str(json.dumps(cmd, sort_keys=True)))
+
 
 def test_command_get_missing(regtest, db, url):
     r = requests.get(url + '/command')
