@@ -299,6 +299,40 @@ def test_commands_post_not_supported(regtest, db, url, memory):
     regtest.write(r.text)
 
 
+def test_commands_post_args_empty(regtest, db, url, interesting):
+    data = [{
+        "sha256_digests": [interesting['sha256_digest']],
+        "scale": "strings",
+        "command": "interesting",
+        "args": {}
+    }]
+    r = requests.post(url + '/commands', json=data)
+    cmd = r.json()
+    cmd['data']['commands'][0]['timestamp'] = None
+    cmd['data']['commands'][0]['start_time'] = None
+    cmd['data']['commands'][0]['end_time'] = None
+    cmd['data']['commands'][0]['status'] = None
+    regtest.write(str(json.dumps(cmd, sort_keys=True)))
+
+
+def test_commands_post_args_present(regtest, db, url, interesting):
+    data = [{
+        "sha256_digests": [interesting['sha256_digest']],
+        "scale": "strings",
+        "command": "interesting",
+        "args": {
+            "min_length": 10
+        }
+    }]
+    r = requests.post(url + '/commands', json=data)
+    cmd = r.json()
+    cmd['data']['commands'][0]['timestamp'] = None
+    cmd['data']['commands'][0]['start_time'] = None
+    cmd['data']['commands'][0]['end_time'] = None
+    cmd['data']['commands'][0]['status'] = None
+    regtest.write(str(json.dumps(cmd, sort_keys=True)))
+
+
 def test_commands_get(regtest, db, url, file):
     data = [{
         "sha256_digests": [file['sha256_digest']],
@@ -462,3 +496,16 @@ def test_commands_get_incorrect_2(regtest, db, url):
     data = "?sha256_digest=abcd"
     r = requests.get(url + '/commands' + data)
     regtest.write(r.text)
+
+
+def test_commands_get_args_present(regtest, db, url ,interesting):
+    data = "?sha256_digest=" + interesting['sha256_digest'] + \
+           "&scale=strings" + \
+           "&command=interesting" + \
+           "&args[min_length]=10"
+    r = requests.get(url + '/commands' + data)
+    cmd = r.json()
+    cmd['data']['commands'][0]['timestamp'] = None
+    cmd['data']['commands'][0]['start_time'] = None
+    cmd['data']['commands'][0]['end_time'] = None
+    regtest.write(str(json.dumps(cmd, sort_keys=True)))
