@@ -1,5 +1,6 @@
 {
  "data": {
+  "args": {},
   "command": "all",
   "format": "json",
   "scale": "hashes",
